@@ -39,4 +39,4 @@ cd openwrt
 ls
 echo "========"
 sudo rm package/base-files/files/etc/banner
-wget https://raw.githubusercontent.com/0xACE8/AutoBuild-LEDE/master/banner -O package/base-files/files/etc/banner
+wget https://raw.githubusercontent.com/0xACE8/OP-Build-x64-UEFI/main/banner -O package/base-files/files/etc/banner
