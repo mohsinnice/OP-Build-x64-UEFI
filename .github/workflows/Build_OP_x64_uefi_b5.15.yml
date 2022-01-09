@@ -68,7 +68,12 @@ jobs:
       uses: klever1988/cachewrtbuild@main
       with:
         ccache: 'true'
-        prefix: ${{ github.workspace }}/openwrt        
+        prefix: ${{ github.workspace }}/openwrt
+
+    - name: Change Kernel to beta 5.15
+      run: |
+        cd openwrt
+        sed -i 's/5.10/5.15/g' target/linux/x86/Makefile
 
     - name: Load custom feeds
       run: |
