@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: Build OpenWrt Beta Kernel 5.15
+name: Build OpenWrt Test Kernel 5.15
 
 on:
   repository_dispatch:
@@ -25,7 +25,7 @@ env:
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: x86_64_uefi.config
-  DIY_P1_SH: feeds.conf.sh
+  DIY_P1_SH: feeds.conf.default
   DIY_P2_SH: customize.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
@@ -70,11 +70,6 @@ jobs:
         ccache: 'true'
         prefix: ${{ github.workspace }}/openwrt
 
-    - name: Change Kernel to beta 5.15
-      run: |
-        cd openwrt
-        sed -i 's/5.10/5.15/g' target/linux/x86/Makefile
-
     - name: Load custom feeds
       run: |
         [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
@@ -82,12 +77,12 @@ jobs:
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P1_SH
 
-    - name: 升级 & 安装 feeds
+    - name: Updata & Install feeds
       working-directory: ./openwrt
       run: |
         ./scripts/feeds update -a
-        ./scripts/feeds install -a
-        ./scripts/feeds install -a 
+        ./scripts/feeds install -a -f
+        ./scripts/feeds install -a -f
 
     - name: Load custom configuration
       run: |
