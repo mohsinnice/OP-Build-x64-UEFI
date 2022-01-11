@@ -25,7 +25,7 @@ env:
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: x86_64_uefi.config
-  DIY_P1_SH: feeds.conf.sh
+  DIY_P1_SH: feeds.conf.default
   DIY_P2_SH: customize.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
@@ -77,12 +77,12 @@ jobs:
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P1_SH
 
-    - name: 升级 & 安装 feeds
+    - name: Updata & install feeds
       working-directory: ./openwrt
       run: |
         ./scripts/feeds update -a
-        ./scripts/feeds install -a
-        ./scripts/feeds install -a 
+        ./scripts/feeds install -a -f
+        ./scripts/feeds install -a -f
 
     - name: Load custom configuration
       run: |
