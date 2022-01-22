@@ -18,6 +18,7 @@ sed -i "s/OpenWrt /0xACE7 build $(TZ=UTC-3 date "+%Y.%m.%d") @ OpenWrt /g" packa
 
 #5. Change luci list name
 sed -i 's/"Turbo ACC 网络加速"/"网络加速"/g' package/lean/luci-app-turboacc/po/zh-cn/turboacc.po
+mv feeds/small-package/luci-theme-argonne/htdocs/luci-static/argonne/img/argon.svg feeds/small-package/luci-theme-argonne/htdocs/luci-static/argonne/img/argonne.svg
 #sed -i 's/"Argon 主题设置"/"主题设置"/g' feeds/kenzo/luci-app-argon-config/po/zh-cn/argon-config.po
         
 #6. Change dns server
@@ -33,8 +34,5 @@ rm -rf feeds/packages/net/dnscrypt-proxy2
 git clone https://github.com/0xACE8/ace-packages.git feeds/packages/net/dnscrypt-proxy2
 
 #9. Change to my banner
-echo "===list==="
-ls
-echo "========"
 sudo rm package/base-files/files/etc/banner
 wget https://raw.githubusercontent.com/0xACE8/OP-Build-x64-UEFI/main/banner -O package/base-files/files/etc/banner
