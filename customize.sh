@@ -11,7 +11,7 @@ sed -i 's/192.168.1.1/192.168.199.77/g' package/base-files/files/bin/config_gene
 sed -i '/uci commit system/i\uci set system.@system[0].hostname='OpenwrtBP'' package/lean/default-settings/files/zzz-default-settings
 
 #3. 设置密码为空
-#sed -i 's/root::0:0:99999:7:::/root::0:0:99999:7:::/g' /etc/shadow
+#sed -i 's/root::0:0:99999:7:::/root:$1$4xKZB45Q$w0CPT5M6vBWbYNmSWuxfU.:19007:0:99999:7:::/g' /etc/shadow
 
 #4. Modify builder
 sed -i "s/OpenWrt /0xACE7 build $(TZ=UTC-3 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
