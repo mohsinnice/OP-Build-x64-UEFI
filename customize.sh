@@ -23,7 +23,7 @@ mv feeds/small-package/luci-theme-argonne/htdocs/luci-static/argonne/img/argon.s
         
 #6. Change dns server
 sed -i "2i # network config" package/lean/default-settings/files/zzz-default-settings
-sed -i "3i uci set network.lan.dns='8.8.8.8'"  package/lean/default-settings/files/zzz-default-settings
+sed -i "3i uci set network.lan.dns='127.0.0.1'"  package/lean/default-settings/files/zzz-default-settings
 
 #7. Replacement Argon to main theme
 #sed -i 's/default Bootstrap theme/default Argon theme/g' feeds/luci/collections/luci/Makefile
