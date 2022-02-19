@@ -17,7 +17,7 @@ sed -i 's/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/root:$1$4xKZB45
 sed -i "s/OpenWrt /0xACE7 build $(TZ=UTC-3 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
 
 #5. Change luci list name
-sed -i 's/"Turbo ACC 网络加速"/"网络加速"/g' package/lean/luci-app-turboacc/po/zh-cn/turboacc.po
+sed -i 's/"Turbo ACC 网络加速设置"/"网络加速"/g' package/lean/luci-app-turboacc/po/zh-cn/turboacc.po
 mv feeds/small8/luci-theme-argonne/htdocs/luci-static/argonne/img/argon.svg feeds/small8/luci-theme-argonne/htdocs/luci-static/argonne/img/argonne.svg
 #sed -i 's/"Argon 主题设置"/"主题设置"/g' feeds/kenzo/luci-app-argon-config/po/zh-cn/argon-config.po
 sed -i 's/"Argonne 主题设置"/"主题设置"/g' feeds/small8/luci-app-argonne-config/po/zh-cn/argonne-config.po
