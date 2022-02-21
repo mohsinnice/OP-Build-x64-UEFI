@@ -34,6 +34,9 @@ sed -i "3i uci set network.lan.dns='127.0.0.1'"  package/lean/default-settings/f
 rm -rf feeds/packages/net/dnscrypt-proxy2
 git clone https://github.com/0xACE8/ace-packages.git feeds/packages/net/dnscrypt-proxy2
 
-#9. Change to my banner
+#8. Update hysteria 0.9.6 to 0.9.7
+sed -i 's/"0.9.6"/"0.9.7"/g' feeds/passwall/hysteria/Makefile
+
+#10. Change to my banner
 sudo rm package/base-files/files/etc/banner
 wget https://raw.githubusercontent.com/0xACE8/OP-Build-x64-UEFI/main/banner -O package/base-files/files/etc/banner
