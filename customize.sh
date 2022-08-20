@@ -11,7 +11,7 @@ sed -i 's/192.168.1.1/192.168.199.99/g' package/base-files/files/bin/config_gene
 sed -i '/uci commit system/i\uci set system.@system[0].hostname='OpenwrtBP'' package/lean/default-settings/files/zzz-default-settings
 
 #3. 设置密码为空
-#sed -i 's/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/root:$1$4xKZB45Q$w0CPT5M6vBWbYNmSWuxfU.:19007:0:99999:7:::/g' package/lean/default-settings/files/zzz-default-settings
+sed -i 's/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/root:$1$4xKZB45Q$w0CPT5M6vBWbYNmSWuxfU.:19007:0:99999:7:::/g' package/lean/default-settings/files/zzz-default-settings
 
 #4. Modify builder
 sed -i "s/OpenWrt /0xACE7 build $(TZ=UTC-3 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
@@ -42,12 +42,12 @@ sed -i "14i uci set network.lan6.dns='::1'" package/lean/default-settings/files/
 #sed -i 's/+luci-theme-bootstrap/+luci-theme-argon/g' feeds/luci/collections/luci/Makefile
 
 #8. Update dnscrypt-proxy2 2.0.45 to 2.1.1
-#rm -rf feeds/packages/net/dnscrypt-proxy2
-#git clone https://github.com/0xACE8/ace-packages.git feeds/packages/net/
+rm -rf feeds/packages/net/dnscrypt-proxy2
+git clone https://github.com/0xACE8/ace-packages.git feeds/packages/net/
 
 #8. Update hysteria 0.9.6 to 0.9.7
 #sed -i 's/"0.9.6"/"0.9.7"/g' feeds/passwall/hysteria/Makefile
 
 #10. Change to my banner
-#sudo rm package/base-files/files/etc/banner
-#wget https://raw.githubusercontent.com/0xACE8/OP-Build-x64-UEFI/main/banner -O package/base-files/files/etc/banner
+sudo rm package/base-files/files/etc/banner
+wget https://raw.githubusercontent.com/0xACE8/OP-Build-x64-UEFI/main/banner -O package/base-files/files/etc/banner
