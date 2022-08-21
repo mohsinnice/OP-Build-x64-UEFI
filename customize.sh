@@ -42,8 +42,8 @@ sed -i "14i uci set network.lan6.dns='::1'" package/lean/default-settings/files/
 #sed -i 's/+luci-theme-bootstrap/+luci-theme-argon/g' feeds/luci/collections/luci/Makefile
 
 #8. Update dnscrypt-proxy2 2.0.45 to 2.1.1
-rm -rf feeds/packages/net/dnscrypt-proxy2
-git clone https://github.com/0xACE8/ace-packages.git feeds/packages/net/
+#rm -rf feeds/packages/net/dnscrypt-proxy2
+#git clone https://github.com/0xACE8/ace-packages.git feeds/packages/net/
 
 #8. Update hysteria 0.9.6 to 0.9.7
 #sed -i 's/"0.9.6"/"0.9.7"/g' feeds/passwall/hysteria/Makefile
